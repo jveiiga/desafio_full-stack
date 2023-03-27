@@ -13,17 +13,18 @@ import {
   } from '@chakra-ui/react'
 import { useState } from 'react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
-import * as yup from "yup"
 import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup"
-import { IUserLogin, IUserRegister } from '@/interface/user/userInterface'
-import formSchema from '@/schema/login/schemaLogin'
+import { IUserRegister } from '@/interface/user/userInterface'
 import schemaRegister from '@/schema/register/schemaRegister'
+import { useRegister } from '@/context/registerContext'
+
 
 const RegisterForm = () => {
 
-    const [showPassword, setShowPassword] = useState(false); 
-    
+    const [showPassword, setShowPassword] = useState(false)
+    const { registerUser } = useRegister() 
+    console.log(registerUser)
     const {
         register,
         handleSubmit,
@@ -33,7 +34,8 @@ const RegisterForm = () => {
     })
 
     const onFormSubmit = (formData: IUserRegister) => {
-        console.log(formData)
+      console.log(formData)
+      registerUser(formData)
     }
 
     return (

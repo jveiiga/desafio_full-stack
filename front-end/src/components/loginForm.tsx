@@ -13,7 +13,6 @@ import {
 } from '@chakra-ui/react'
 import { useState } from 'react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
-import * as yup from "yup"
 import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup"
 import { IUserLogin } from '@/interface/user/userInterface'

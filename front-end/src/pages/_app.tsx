@@ -1,15 +1,20 @@
 import AuthProvider from '@/context/authContext'
+import RegisterProvider from '@/context/registerContext'
 import '@/styles/globals.css'
 import { ChakraProvider } from "@chakra-ui/react"
 import type { AppProps } from 'next/app'
 
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <ChakraProvider>
       <AuthProvider>
-        <Component {...pageProps} />
+        <RegisterProvider>
+          <Component {...pageProps} />
+        </RegisterProvider>
       </AuthProvider>
     </ChakraProvider>
   )
 }
+
+export default App

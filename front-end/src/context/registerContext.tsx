@@ -1,31 +1,23 @@
-import { AuthProviderData } from "@/interface/context"
-import { IProviderProps } from "@/interface/provider"
-import { IUserLogin } from "@/interface/user/userInterface"
-import { createContext, useContext } from "react"
-import api from "@/service/api"
-import { setCookie } from "nookies"
-import { Box, useToast } from "@chakra-ui/react"
-import { useRouter } from "next/router"
+import { RegisterProviderData } from "@/interface/context";
+import { IProviderProps } from "@/interface/provider";
+import { IUserRegister } from "@/interface/user/userInterface";
+import api from "@/service/api";
+import { Box, useToast } from "@chakra-ui/react";
+import { useRouter } from "next/router";
+import { createContext, useContext } from "react";
 
-const AuthContext = createContext<AuthProviderData> ({} as AuthProviderData)
 
-const AuthProvider = ({ children }: IProviderProps) => {
+const RegisterContext = createContext<RegisterProviderData> ({} as RegisterProviderData)
+
+const RegisterProvider = ({ children }: IProviderProps) => {
 
     const toast = useToast()
     const router = useRouter()
 
-    const login = (userData: IUserLogin) => {
+    const registerUser = (userData: IUserRegister) => {
 
-        api.post(`/login`, userData)
+        api.post(`/users`, userData)
         .then((response) => {
-            setCookie(null, "m6.token", response.data.tokenUser,
-            {
-                maxAge:1440 * 60, path: "/"
-            })
-            setCookie(null, "m6.user", response.data.name,
-            {
-                maxAge:1440 * 60, path: "/"
-            })
             toast({
                 title: "sucess",
                 variant: "solid",
@@ -39,7 +31,7 @@ const AuthProvider = ({ children }: IProviderProps) => {
                         fontWeight={"bold"}
                         borderRadius={"md"}
                     >
-                        Login realizado com sucesso
+                        Usuário criando com sucesso
                     </Box>
                 )
             })
@@ -60,19 +52,19 @@ const AuthProvider = ({ children }: IProviderProps) => {
                         fontWeight={"bold"}
                         borderRadius={"md"}
                     >
-                        Não foi possível realizar o login
+                        Não foi possível 
                     </Box>
                 )
             })
         })
     }
     return (
-        <AuthContext.Provider value={{ login }}>
+        <RegisterContext.Provider value={{ registerUser }}>
             { children }
-        </AuthContext.Provider>
+        </RegisterContext.Provider>
     )
 }
 
-export default AuthProvider
+export default RegisterProvider
 
-export const useAuth = () => useContext(AuthContext)
+export const useRegister = () => useContext(RegisterContext)
