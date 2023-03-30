@@ -10,6 +10,7 @@ import {
   Button,
   Heading,
   useColorModeValue,
+  Link,
 } from '@chakra-ui/react'
 import { useState } from 'react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
@@ -18,6 +19,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { IUserLogin } from '@/interface/user/userInterface'
 import formSchema from '@/schema/login/schemaLogin'
 import { useAuth } from '@/context/authContext'
+import NextLink from "next/link"
 
 const LoginForm = () => {
 
@@ -101,6 +103,10 @@ const LoginForm = () => {
                 Entrar
               </Button>
             </Stack>
+
+            <Link as={NextLink} href={`/Register`}>
+              Crie uma conta 
+            </Link>
           </Stack>
         </Box>
       </Stack>

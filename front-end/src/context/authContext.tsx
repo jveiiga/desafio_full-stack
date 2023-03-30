@@ -18,7 +18,12 @@ const AuthProvider = ({ children }: IProviderProps) => {
 
         api.post(`/login`, userData)
         .then((response) => {
+           
             setCookie(null, "m6.token", response.data.tokenUser,
+            {
+                maxAge:1440 * 60, path: "/"
+            })
+            setCookie(null, "m6.id", response.data.id,
             {
                 maxAge:1440 * 60, path: "/"
             })
@@ -43,7 +48,8 @@ const AuthProvider = ({ children }: IProviderProps) => {
                     </Box>
                 )
             })
-            router.push("/Dashboard")
+            console.log()
+            router.push(`/Dashboard/User/${response.data.id}`)
         })
         .catch((error) => {
             console.error(error)

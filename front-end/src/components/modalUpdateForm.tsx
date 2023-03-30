@@ -14,7 +14,7 @@ import {
     Button,
     CloseButton,
 } from "@chakra-ui/react"
-import { AddIcon } from "@chakra-ui/icons"
+import { EditIcon } from "@chakra-ui/icons"
 import { useForm } from "react-hook-form"
 import { IContacCreate } from "@/interface/contact/contactInterface"
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -24,10 +24,10 @@ import { useContact } from "@/context/contactContext"
 
 
 
-const ModalForm = () => {
+const ModalUpdateForm = () => {
 
     const { onOpen, isOpen, onClose } = useDisclosure()
-    const { registerContact } = useContact()
+    const { updateContatc } = useContact()
 
     const [inputName, setInputNome] = useState("")
     const [inputEmail, setInputEmail] = useState("")
@@ -46,17 +46,19 @@ const ModalForm = () => {
     })
 
     const onFormSubmit = (formData: IContacCreate) => {
-       
-        registerContact(formData)
+        updateContatc(formData)
     }
+    
     return (
         <>
-            <AddIcon onClick={onOpen} />
+            <EditIcon 
+                onClick={onOpen}
+                cursor="pointer"
+            />
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
-
                 <ModalContent>
-                    <ModalHeader>Novo Contato</ModalHeader>
+                    <ModalHeader>Editar Contato</ModalHeader>
                     <ModalBody>
                         <CloseButton 
                             onClick={onClose}
@@ -136,7 +138,7 @@ const ModalForm = () => {
                             }}
                             onClick={handleSubmit(onFormSubmit)}
                         >
-                            Cadastrar novo contato
+                            Atualizar dados
                         </Button>
                     </ModalFooter>
 
@@ -146,4 +148,4 @@ const ModalForm = () => {
     )
 }
 
-export default ModalForm
+export default ModalUpdateForm

@@ -19,3 +19,5 @@ export interface IUserRegister {
 	password: string, 
 	phone: string,
 }
+
+

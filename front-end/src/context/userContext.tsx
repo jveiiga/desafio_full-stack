@@ -58,6 +58,13 @@ const RegisterProvider = ({ children }: IProviderProps) => {
             })
         })
     }
+
+    // const updateUser = () => {
+
+    // api.patch(`/users/${id}`, dataUser)
+
+    // }
+
     return (
         <RegisterContext.Provider value={{ registerUser }}>
             { children }

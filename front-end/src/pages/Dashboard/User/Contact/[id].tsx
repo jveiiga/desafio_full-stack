@@ -8,7 +8,7 @@ import { useRouter } from "next/router"
 const Contact: NextPage<IPropsCard> = ({ contacts }) => {
  
     const router = useRouter()
-
+  
     return (
         <>
             <ContactCard

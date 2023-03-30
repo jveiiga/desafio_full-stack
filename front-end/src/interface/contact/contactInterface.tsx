@@ -23,6 +23,10 @@ export interface IContacCreate {
     phone: string;
 }
 
+export interface IContactDele {
+    
+}
+
 export interface IProps {
     contacts: IContact[];
 }
@@ -33,4 +37,10 @@ export interface IPropsCard {
 
 export interface IPropsContact {
     contacts: IContactPage;
+}
+
+export interface IContactUpdate {
+    name: string;
+    email: string;
+    phone: string;
 }
