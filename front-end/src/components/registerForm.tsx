@@ -18,14 +18,14 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup"
 import { IUserRegister } from '@/interface/user/userInterface'
 import schemaRegister from '@/schema/register/schemaRegister'
-import { useRegister } from '@/context/userContext'
+import { useUser } from '@/context/userContext'
 import NextLink from "next/link"
 
 
 const RegisterForm = () => {
 
   const [showPassword, setShowPassword] = useState(false)
-  const { registerUser } = useRegister()
+  const { registerUser } = useUser()
 
   const {
     register,
@@ -36,13 +36,12 @@ const RegisterForm = () => {
   })
 
   const onFormSubmit = (formData: IUserRegister) => {
-    console.log(formData)
     registerUser(formData)
   }
 
   return (
     <Form
-      minH={'80vh'}
+      minH={'100vh'}
       align={'center'}
       justify={'center'}
       as="form"
@@ -51,7 +50,11 @@ const RegisterForm = () => {
     >
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
-          <Heading fontSize={'4xl'} textAlign={'center'}>
+          <Heading
+            fontSize={'4xl'}
+            textAlign={'center'}
+            color={"blue.300"}
+          >
             Cadastre-se
           </Heading>
         </Stack>
@@ -106,7 +109,11 @@ const RegisterForm = () => {
               </Button>
             </Stack>
 
-            <Link as={NextLink} href={`/Login`}>
+            <Link 
+              as={NextLink}
+              href={`/Login`}
+              textAlign={"center"}
+            >
               Login
             </Link>
           </Stack>

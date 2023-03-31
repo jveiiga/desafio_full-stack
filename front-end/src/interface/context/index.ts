@@ -5,8 +5,10 @@ export interface AuthProviderData {
     login: (userData: IUserLogin) => void
 }
 
-export interface RegisterProviderData {
+export interface UserProviderData {
     registerUser: (userData: IUserRegister) => void
+    updateUser: (userData: IUserRegister) => void
+    deleteUser: () => void
 }
 
 export interface ContactProviderData {

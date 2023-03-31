@@ -11,14 +11,14 @@ import {
   Heading,
   useColorModeValue,
   Link,
-} from '@chakra-ui/react'
-import { useState } from 'react'
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
-import { useForm } from 'react-hook-form'
+} from "@chakra-ui/react"
+import { useState } from "react"
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons"
+import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { IUserLogin } from '@/interface/user/userInterface'
-import formSchema from '@/schema/login/schemaLogin'
-import { useAuth } from '@/context/authContext'
+import { IUserLogin } from "@/interface/user/userInterface"
+import formSchema from "@/schema/login/schemaLogin"
+import { useAuth } from "@/context/authContext"
 import NextLink from "next/link"
 
 const LoginForm = () => {
@@ -40,23 +40,27 @@ const LoginForm = () => {
 
   return (
     <Form
-      minH={'80vh'}
-      align={'center'}
-      justify={'center'}
+      minH={"100vh"}
+      align={"center"}
+      justify={"center"}
       as="form"
-      bg={useColorModeValue('gray.50', 'gray.800')}
+      bg={useColorModeValue("gray.50", "gray.800")}
       onSubmit={handleSubmit(onFormSubmit)}
     >
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-        <Stack align={'center'}>
-          <Heading fontSize={'4xl'} textAlign={'center'}>
+      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+        <Stack align={"center"}>
+          <Heading 
+            fontSize={"4xl"}
+            textAlign={"center"}
+            color={"blue.300"}
+          >
             Login
           </Heading>
         </Stack>
         <Box
-          rounded={'lg'}
-          bg={useColorModeValue('white', 'gray.700')}
-          boxShadow={'lg'}
+          rounded={"lg"}
+          bg={useColorModeValue("white", "gray.700")}
+          boxShadow={"lg"}
           p={8}>
           <Stack spacing={4} minW={"200px"}>
 
@@ -74,12 +78,12 @@ const LoginForm = () => {
               <InputGroup>
                 <Input 
                 required focusBorderColor="blue.300"
-                type={showPassword ? 'text' : 'password'}
+                type={showPassword ? "text" : "password"}
                 {...register("password")}
               />
-                <InputRightElement h={'full'}>
+                <InputRightElement h={"full"}>
                   <Button
-                    variant={'ghost'}
+                    variant={"ghost"}
                     onClick={() =>
                       setShowPassword((showPassword) => !showPassword)
                     }>
@@ -96,7 +100,7 @@ const LoginForm = () => {
                 type="submit"
                 variant={"default"}
                 _hover={{
-                  bg: 'blue.700',
+                  bg: "blue.700",
                 }}
                 onClick={handleSubmit(onFormSubmit)}
                 >
@@ -104,7 +108,12 @@ const LoginForm = () => {
               </Button>
             </Stack>
 
-            <Link as={NextLink} href={`/Register`}>
+            <Link
+              as={NextLink}
+              href={`/Register`}
+              align={"center"}
+              justify={"center"}
+              >
               Crie uma conta 
             </Link>
           </Stack>
