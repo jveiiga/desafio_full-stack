@@ -1,7 +1,7 @@
 import ContactCard from "@/components/contactCard"
 import { IContact, IPropsCard, IPropsContact } from "@/interface/contact/contactInterface"
 import api from "@/service/api"
-import { GetStaticPaths ,GetStaticProps, NextPage } from "next"
+import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import { useRouter } from "next/router"
 
 
@@ -34,7 +34,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<IPropsContact> = async (ctx) => {
 
     const id = ctx.params!.id
-    const response = await api.get(`/contacts/${id}`)
+    const response = await api.get(`/contacts/users/${id}`)
     const contacts: IContact = response.data
     
     return { props: { contacts }}

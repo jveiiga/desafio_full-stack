@@ -8,16 +8,14 @@ import ModalForm from "@/components/modalForm"
 import nookies, { destroyCookie, parseCookies } from "nookies"
 import { useContact } from "@/context/contactContext"
 import ModalUpdateUserForm from "@/components/modalUpdateUserForm"
+import { IUserById } from "@/interface/user/userInterface"
 
 
-const Dashboard: NextPage<IProps> = ({ contacts }) => {
-  
+const Dashboard: NextPage<IProps> = ({ contacts, user }) => {
+
   const { setContactId } = useContact()
-  
-  const router = useRouter()
 
-  const cookie = parseCookies()
-  const name = cookie["m6.user"]
+  const router = useRouter()
 
   const logOut = () => {
 
@@ -26,7 +24,7 @@ const Dashboard: NextPage<IProps> = ({ contacts }) => {
 
     router.push("/Login")
   }
- 
+
   return (
     <>
       <Flex
@@ -40,7 +38,7 @@ const Dashboard: NextPage<IProps> = ({ contacts }) => {
           <Box
              fontSize="2xl"
           >
-            {name}
+            {user.name}
           </Box>
           <ModalUpdateUserForm/>
         </Flex>
@@ -105,10 +103,13 @@ export const getServerSideProps: GetServerSideProps<IProps> = async (ctx) => {
     }
   }
   
-  const response = await api.get(`/contacts/users/${id}`)
+  const response = await api.get(`/contacts/${id}`)
   const contacts: IContact[] = response.data
 
-  return {props: {contacts}}
+  const responseUser = await api.get(`/users/${id}`)
+  const user: IUserById = responseUser.data
+
+  return {props: {contacts, user}}
 }
 
 export default Dashboard

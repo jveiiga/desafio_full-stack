@@ -1,4 +1,4 @@
-import { IUserResponse } from "../user/userInterface";
+import { IUserById, IUserResponse } from "../user/userInterface";
 
 
 export interface IContact {
@@ -29,6 +29,7 @@ export interface IContactDele {
 
 export interface IProps {
     contacts: IContact[];
+    user: IUserById,
 }
 
 export interface IPropsCard {

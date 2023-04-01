@@ -4,8 +4,8 @@ import { IUserRegister, IUserUpdate } from "@/interface/user/userInterface";
 import api from "@/service/api";
 import { Box, useToast } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { parseCookies } from "nookies";
-import { createContext, useContext } from "react";
+import { parseCookies, setCookie } from "nookies";
+import { createContext, useContext, useEffect } from "react";
 
 
 const RegisterContext = createContext<UserProviderData> ({} as UserProviderData)
@@ -59,56 +59,69 @@ const RegisterProvider = ({ children }: IProviderProps) => {
             })
         })
     }
+    
+    // useEffect(() => {
+        const updateUser = (userData: IUserUpdate) => {
+            
+            const refreshData = () => {
+                router.replace(router.asPath);
+            }
+            
+            const cookie = parseCookies()
+            const id = cookie["m6.id"]
+            const token = cookie["m6.token"]
 
-    const updateUser = (userData: IUserUpdate) => {
 
-        const cookie = parseCookies()
-        const id = cookie["m6.id"]
-        const token = cookie["m6.token"]
+            api.defaults.headers.authorization = `Bearer ${token}`
 
-        api.defaults.headers.authorization = `Bearer ${token}`
-
-        api.patch(`/users/${id}`, userData)
-            .then((response) => {
-                toast({
-                    title: "sucess",
-                    variant: "solid",
-                    position: "bottom-right",
-                    isClosable: true,
-                    render: () => (
-                        <Box
-                            color={"gray.50"}
-                            p={3}
-                            bg={"green.600"}
-                            fontWeight={"bold"}
-                            borderRadius={"md"}
-                        >
-                            Dados atualizados com sucesso
-                        </Box>
-                    )
+            api.patch(`/users/${id}`, userData)
+                .then((response) => {
+                    setCookie(null, "m6.user", response.data.name,
+                    {
+                        maxAge:1440 * 60, path: "/"
+                    })
+                    toast({
+                        title: "sucess",
+                        variant: "solid",
+                        position: "bottom-right",
+                        isClosable: true,
+                        render: () => (
+                            <Box
+                                color={"gray.50"}
+                                p={3}
+                                bg={"green.600"}
+                                fontWeight={"bold"}
+                                borderRadius={"md"}
+                            >
+                                Dados atualizados com sucesso
+                            </Box>
+                        )
+                    })
+                    refreshData()
+                    router.push(`/Dashboard/User/${id}`)
                 })
-            })
-            .catch((error) => {
-                console.error(error)
-                toast({
-                    title: "error",
-                    variant: "solid",
-                    position: "bottom-right",
-                    isClosable: true,
-                    render: () => (
-                        <Box
-                            color={"gray.50"}
-                            p={3}
-                            bg={"red.600"}
-                            fontWeight={"bold"}
-                            borderRadius={"md"}
-                        >
-                            Não foi possível atualizar os dados
-                        </Box>
-                    )
+                .catch((error) => {
+                    console.error(error)
+                    toast({
+                        title: "error",
+                        variant: "solid",
+                        position: "bottom-right",
+                        isClosable: true,
+                        render: () => (
+                            <Box
+                                color={"gray.50"}
+                                p={3}
+                                bg={"red.600"}
+                                fontWeight={"bold"}
+                                borderRadius={"md"}
+                            >
+                                Não foi possível atualizar os dados
+                            </Box>
+                        )
+                    })
                 })
-            })
-    }
+            }
+    // }, [])
 
     const deleteUser = () => {
 

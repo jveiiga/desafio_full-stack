@@ -27,4 +27,9 @@ export interface IUserUpdate {
 	phone: string,
 }
 
+export interface IUserById {
+    id: string;
+    name: string;
+	email: string,
+}
 

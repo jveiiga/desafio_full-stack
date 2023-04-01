@@ -18,6 +18,10 @@ const ContactProvider = ({ children }: IProviderProps) => {
 
     const registerContact = (contactData: IContacCreate) => {
 
+        const refreshData = () => {
+            router.replace(router.asPath);
+          };
+
         const cookie = parseCookies()
         const token = cookie["m6.token"]
 
@@ -43,6 +47,7 @@ const ContactProvider = ({ children }: IProviderProps) => {
                     </Box>
                 )
             })
+            refreshData()
         })
         .catch((error) => {
             console.error(error)
@@ -67,6 +72,10 @@ const ContactProvider = ({ children }: IProviderProps) => {
     }
 
     const updateContatc = (contactData: IContactUpdate) => {
+
+        const refreshData = () => {
+            router.replace(router.asPath);
+          };
 
         const id = contactId
 
@@ -95,6 +104,7 @@ const ContactProvider = ({ children }: IProviderProps) => {
                     </Box>
                 )
             })
+            refreshData()
             router.push(`/Dashboard/User/${userId}`)
         })
         .catch((error) => {

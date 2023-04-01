@@ -22,6 +22,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import schemaContact from "@/schema/contact/schemaContact"
 import { useState } from "react"
 import { useContact } from "@/context/contactContext"
+import { useRouter } from "next/router"
 
 
 
@@ -29,6 +30,7 @@ const ModalUpdateContactForm = () => {
 
     const { onOpen, isOpen, onClose } = useDisclosure()
     const { updateContatc } = useContact()
+    const router = useRouter()
 
     const [inputName, setInputNome] = useState("")
     const [inputEmail, setInputEmail] = useState("")
@@ -49,7 +51,12 @@ const ModalUpdateContactForm = () => {
     const onFormSubmit = (formData: IContacCreate) => {
         updateContatc(formData)
     }
+
+  const refreshData = () => {
     
+    router.replace(router.asPath)
+  }
+
     return (
         <>
             <EditIcon 

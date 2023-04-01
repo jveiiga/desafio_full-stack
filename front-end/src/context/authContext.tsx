@@ -27,10 +27,6 @@ const AuthProvider = ({ children }: IProviderProps) => {
             {
                 maxAge:1440 * 60, path: "/"
             })
-            setCookie(null, "m6.user", response.data.name,
-            {
-                maxAge:1440 * 60, path: "/"
-            })
             toast({
                 title: "sucess",
                 variant: "solid",
@@ -48,7 +44,6 @@ const AuthProvider = ({ children }: IProviderProps) => {
                     </Box>
                 )
             })
-            console.log()
             router.push(`/Dashboard/User/${response.data.id}`)
         })
         .catch((error) => {
