@@ -6,7 +6,7 @@ import { AppError } from "../../errors/appError"
 import { IUserLogin } from "../../interface/user/userInterface"
 import jwt from "jsonwebtoken"
 
-const loginUserService = async ({ email, password }: IUserLogin): Promise<string> => {
+const loginUserService = async ({ email, password }: IUserLogin) => {
     
     const userRepository: Repository<User> = AppDataSource.getRepository(User)
 
@@ -24,7 +24,7 @@ const loginUserService = async ({ email, password }: IUserLogin): Promise<string
         throw new AppError("Wrong email or password", 401)
     }
 
-    const token = jwt.sign({
+    const tokenUser = jwt.sign({
         email: user.email,
     },
     process.env.SECRET_KEY!,
@@ -32,7 +32,7 @@ const loginUserService = async ({ email, password }: IUserLogin): Promise<string
         subject: user.id,
         expiresIn: "24h"
     })
-    return token
+    return {tokenUser, id: user.id, name: user.name}
 }
 
 export { loginUserService }

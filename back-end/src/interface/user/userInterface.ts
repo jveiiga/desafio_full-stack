@@ -32,3 +32,9 @@ export interface IUserUpdate {
     password: string;
     phone: string;
 }
+
+export interface IUserId {
+    id?: string;
+    name?: string;
+    email?: string;
+}

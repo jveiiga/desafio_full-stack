@@ -5,7 +5,7 @@ import { Box, Button, Center, Flex, Link, List, ListItem } from "@chakra-ui/reac
 import NextLink from "next/link"
 import { useRouter } from "next/router"
 import ModalForm from "@/components/modalForm"
-import nookies, { destroyCookie, parseCookies } from "nookies"
+import nookies, { destroyCookie } from "nookies"
 import { useContact } from "@/context/contactContext"
 import ModalUpdateUserForm from "@/components/modalUpdateUserForm"
 import { IUserById } from "@/interface/user/userInterface"

@@ -1,14 +1,19 @@
-import { Router } from "express";
+import { Router } from "express"
 import { 
     createUserController,
     updateUserController,
     deleteUserController,
-} from "../controllers/users.controller";
-import { ensureAuthMiddleware } from "../middlewares/ensureAuth.Middleware";
+    listUserByIdController,
+} from "../controllers/users.controller"
+import { ensureAuthMiddleware } from "../middlewares/ensureAuth.Middleware"
+
 
 const userRoutes: Router = Router()
 
-userRoutes.post("", createUserController)
+userRoutes.post(
+    "",
+    createUserController
+)
 
 userRoutes.patch(
     "/:id",
@@ -20,6 +25,11 @@ userRoutes.delete(
     "/:id",
     ensureAuthMiddleware,
     deleteUserController,
+)
+
+userRoutes.get(
+    "/:id",
+    listUserByIdController,
 )
 
 export { userRoutes }

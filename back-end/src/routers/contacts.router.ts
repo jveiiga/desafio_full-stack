@@ -6,7 +6,7 @@ const contactRoutes: Router = Router()
 
 contactRoutes.post(
     "",
-    ensureAuthMiddleware,
+    // ensureAuthMiddleware,
     createContactController,
 )
 
@@ -23,13 +23,13 @@ contactRoutes.delete(
 )
 
 contactRoutes.get(
-    "/users/:id",
+    "/:id",
     // ensureAuthMiddleware,
     listContactsByUserController
 )
 
 contactRoutes.get(
-    "/:id",
+    "/users/:id",
     // ensureAuthMiddleware,
     listPagesController
 )
