@@ -6,7 +6,7 @@ const contactRoutes: Router = Router()
 
 contactRoutes.post(
     "",
-    // ensureAuthMiddleware,
+    ensureAuthMiddleware,
     createContactController,
 )
 
