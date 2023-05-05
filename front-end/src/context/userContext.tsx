@@ -5,7 +5,7 @@ import api from "@/service/api";
 import { Box, useToast } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { parseCookies, setCookie } from "nookies";
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext } from "react";
 
 
 const RegisterContext = createContext<UserProviderData> ({} as UserProviderData)

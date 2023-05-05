@@ -20,7 +20,6 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.8",
-    "typescript": "5.0.2",
     "yup": "^1.0.2"
   },
   "devDependencies": {
@@ -34,6 +33,7 @@
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.11",
-    "@types/yup": "^0.32.0"
+    "@types/yup": "^0.32.0",
+    "typescript": "^5.0.4"
   }
 }
