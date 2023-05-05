@@ -1,5 +1,11 @@
 import { Router } from "express"
-import { createContactController, deleteContactController, listContactsByUserController, listPagesController, updateContactController } from "../controllers/contacts.controller"
+import {
+    createContactController,
+    deleteContactController,
+    listContactsByUserController,
+    listPagesController,
+    updateContactController
+} from "../controllers/contacts.controller"
 import { ensureAuthMiddleware } from "../middlewares/ensureAuth.Middleware"
 
 const contactRoutes: Router = Router()
