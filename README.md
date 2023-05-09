@@ -1,4 +1,4 @@
-<h1 align="center">Desafio Full Stack - Kenzie Schedule 📇</h1>
+<h1 align="center">Desafio Full Stack - Schedule 📇</h1>
 <p align="center">
   <img alt="Imagem ilustrativa e-commerce" src="https://cdn3d.iconscout.com/3d/premium/thumb/contact-book-7972565-6324680.png" width="600" height="350"/>
 </p>
