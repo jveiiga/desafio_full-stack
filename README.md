@@ -2,7 +2,7 @@
 <p align="center">
   <img alt="Imagem ilustrativa e-commerce" src="https://cdn3d.iconscout.com/3d/premium/thumb/contact-book-7972565-6324680.png" width="600" height="350"/>
 </p>
-<h4>O desafio Full Stack foi desenvolvido com intuito de aplicar as principais competencias desenvolvidas ao longo do curso, após um módulo intenso de Python e Django, nós temos a oportunidade de aplicar em um projeto 100% de nossa autoria, as tecnologias e metodologias aprendidas.</h4>
+<h4>O desafio Full Stack foi desenvolvido com intuito de aplicar as principais competencias desenvolvidas ao longo do curso, após um módulo intenso de Python e Django, nós temos a oportunidade de aplicar em um projeto 100% de nossa autoria, as tecnologias e metodologias aprendidas no curso até aqui.</h4>
 
 
 <h2 align="center"><a target=blank href="https://trello.com/invite/b/zJYEwq3C/ATTI13d3ce4f549cc18a9c70eedb6ac94b6b635A103A/kenzie-schedule">Clique aqui para ver o Trello do projeto.</a></h2>
