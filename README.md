@@ -1,4 +1,50 @@
-# Link Trello: https://trello.com/invite/b/zJYEwq3C/ATTI13d3ce4f549cc18a9c70eedb6ac94b6b635A103A/kenzie-schedule
+<h1 align="center">Desafio Full Stack - Kenzie Schedule 📇</h1>
+<p align="center">
+  <img alt="Imagem ilustrativa e-commerce" src="https://cdn3d.iconscout.com/3d/premium/thumb/contact-book-7972565-6324680.png" width="600" height="350"/>
+</p>
+<h4>O desafio Full Stack foi desenvolvido com intuito de aplicar as principais competencias desenvolvidas ao longo do curso, após um módulo intenso de Python e Django, nós temos a oportunidade de aplicar em um projeto 100% de nossa autoria, as tecnologias e metodologias aprendidas.</h4>
+
+
+<h2 align="center"><a target=blank href="https://trello.com/invite/b/zJYEwq3C/ATTI13d3ce4f549cc18a9c70eedb6ac94b6b635A103A/kenzie-schedule">Clique aqui para ver o Trello do projeto.</a></h2>
+
+
+## 📺 Imagem
+
+<details>
+  
+<summary>Clique para ver o diagrama do projeto</summary>
+  
+![diagrama](https://github.com/giscus/giscus/assets/57195630/79d01634-eb66-4e2c-957a-1d9c0ba3c8c5)
+
+
+</details> 
+
+## 💻 Linguagens e tecnologias utilizadas
+<p align="left"> 
+<img src="https://media.graphassets.com/VKHHNvEETYqZRkqgjybc" alt="nextjs" width="45" height="48" max-width="100%">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="50" height="50" max-width="100%">
+<img src="https://seanbarry.dev/media/typescript_logo.png" alt="typescript" width="40" height="45" max-width="100%">
+<img src="https://archive.org/download/github.com-chakra-ui-chakra-ui_-_2020-02-13_17-20-29/cover.jpg" alt="chackraui" width="50" height="45" max-width="100%">
+<img src="https://hcode.azureedge.net/courses/NO/squad_1645635531793.png" alt="node" width="50" height="50" max-width="100%">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png" alt="postgreSQL" width="50" height="50" max-width="100%">
+<img src="https://avatars.githubusercontent.com/u/20165699?s=200&v=4" alt="typeorm" width="60" height="50" max-width="100%">
+<img src="https://wsofter.ru/wp-content/uploads/2017/12/node-express.png" alt="express" width="50" height="50" max-width="100%">
+
+
+
+## Funcionalidades da aplicação
+  User
+  - POST - Login
+  - POST - Cadastro de usuário;
+  - PATCH - Edição de usuário;
+  - GET - Leitura de usuário;
+  - DELETE - Deleção de usuário;
+  
+  Contact
+  - POST - Cadastro de contato;
+  - PATCH - Edição de contato;
+  - GET - Leitura de contato;
+  - DELETE- Deleção de contato;
 
 ## Instalação
 
